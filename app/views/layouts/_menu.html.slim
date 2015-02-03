@@ -1,0 +1,18 @@
+.navbar.navbar-default
+  .navbar-header
+    button.navbar-toggle data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button"
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href="/" Sample
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    ul.nav.navbar-nav
+      li
+        a href="/" Home
+      li.dropdown
+        a.dropdown-toggle data-toggle="dropdown" href="#"
+          | User
+          span.caret
+        ul.dropdown-menu aria-labelledby="themes"
+          li
+            a href="/users" User List

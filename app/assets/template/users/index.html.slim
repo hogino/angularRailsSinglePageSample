@@ -1,0 +1,23 @@
+h3 User List
+
+a.btn.btn-primary[href="/users/new"]
+  | ユーザー追加
+
+table.table
+  thead
+    tr.info
+      th Title
+      th
+      th
+      th
+
+  tbody
+    tr[ng-repeat="item in items"]
+      td
+        | {{item.name}}
+      td
+        a.btn.btn-xs.btn-default[href="{{item.url}}"] Show
+      td
+        a.btn.btn-xs.btn-default[href="{{item.url}}/edit"] Edit
+      td
+        a.btn.btn-xs.btn-default[href="{{item.url}}/delete"] Delete

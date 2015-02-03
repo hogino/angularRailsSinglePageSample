@@ -1,0 +1,32 @@
+
+app.config [
+  "$routeProvider"
+  "$locationProvider"
+  (
+    $routeProvider
+    $locationProvider
+  ) ->
+    $locationProvider.html5Mode(true)
+    $routeProvider
+      .when("/users",
+        templateUrl: "<%= asset_path("users/index.html") %>"
+        controller: "UsersListCtrl"
+      )
+      .when("/users/new",
+        templateUrl: "<%= asset_path("users/new.html") %>"
+        controller: "UsersNewCtrl"
+      )
+      .when("/users/:id",
+        templateUrl: "<%= asset_path("users/show.html") %>"
+        controller: "UsersShowCtrl"
+      )
+      .when("/users/:id/edit",
+        templateUrl: "<%= asset_path("users/edit.html") %>"
+        controller: "UsersEditCtrl"
+      )
+      .when("/users/:id/delete",
+        templateUrl: "<%= asset_path("users/index.html") %>"
+        controller: "UsersDeleteCtrl"
+      )
+      .otherwise redirectTo: "/"
+]
