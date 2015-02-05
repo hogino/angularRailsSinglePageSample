@@ -1,18 +1,31 @@
-h3 User List
+h1[ng-init="getList()"] ユーザー一覧
 
-a.btn.btn-primary[href="/users/new"]
-  | ユーザー追加
+.alert.alert-dismissable.alert-info[ng-show="msgInfo.length!=0"]
+  button.close data-dismiss="alert" type="button" ×
+  | {{msgInfo}}
+
+.row
+  .col-xs-3
+    a.btn.btn-default[href="/users/new"]
+      | ユーザー追加
+  .col-xs-3
+    h3 Page: {{ currentPage }}
+  .col-xs-3
+    label for="search"  Search:
+    input#search.form-control ng-model="q" placeholder=("Filter text")
+  .col-xs-3
+    label for="search"  items per page:
+    input.form-control max="100" min="1" ng-model="pageSize" type="number"
 
 table.table
   thead
     tr.info
-      th Title
+      th 名前
       th
       th
       th
-
   tbody
-    tr[ng-repeat="item in items"]
+    tr current-page="currentPage" dir-paginate=("item in items | filter:q | itemsPerPage: pageSize")
       td
         | {{item.name}}
       td
@@ -20,4 +33,7 @@ table.table
       td
         a.btn.btn-xs.btn-default[href="{{item.url}}/edit"] Edit
       td
-        a.btn.btn-xs.btn-default[href="{{item.url}}/delete"] Delete
+        a.btn.btn-xs.btn-default[ng-click="deleteUser(item.id); getList()"] Delete
+
+.text-center
+  dir-pagination-controls[boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url=(asset_path('pagination/dir_pagination.tpl.html'))]

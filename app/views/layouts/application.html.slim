@@ -8,11 +8,6 @@ html[ng-app="angularRailsSinglePageSample"]
     base[href="/"]
   body
     == render 'layouts/menu'
-    .row
-      angularRailsSinglePageSample
-
-    == yield
 
     .container
-      h2 angularRouting
       div[ng-view]

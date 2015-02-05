@@ -14,9 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require angular.min
-//= require_directory ./vendor
+//= require angular/angular.min.js
 //= require app
-//= require_directory ./routes
-//= require_directory ./factory
 //= require_tree .

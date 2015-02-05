@@ -1,12 +1,7 @@
-.container
-  h3 Show
-  .row
-    lebel.col-lg-2
-      | id
-    .col-lg-10
-      | {{item.id}}
-  .row
-    lebel.col-lg-2
-      | name
-    .col-lg-10
-      | {{item.name}}
+
+h1[ng-init="getUser()"] ユーザー情報
+
+.well.row
+  label.col-lg-2.control-label  名前
+  .col-lg-10
+    | {{item.name}}

@@ -6,6 +6,8 @@ window.app = angular.module('angularRailsSinglePageSample', [
   "ngResource"
   "ngSanitize"
   "ngRoute"
+  "ngMessages"
+  'angularUtils.directives.dirPagination'
 ])
 
 # CSRF token setting

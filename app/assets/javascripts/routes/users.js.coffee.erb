@@ -10,23 +10,23 @@ app.config [
     $routeProvider
       .when("/users",
         templateUrl: "<%= asset_path("users/index.html") %>"
-        controller: "UsersListCtrl"
+        controller: "UsersCtrl"
       )
       .when("/users/new",
         templateUrl: "<%= asset_path("users/new.html") %>"
-        controller: "UsersNewCtrl"
+        controller: "UsersCtrl"
       )
       .when("/users/:id",
         templateUrl: "<%= asset_path("users/show.html") %>"
-        controller: "UsersShowCtrl"
+        controller: "UsersCtrl"
       )
       .when("/users/:id/edit",
         templateUrl: "<%= asset_path("users/edit.html") %>"
-        controller: "UsersEditCtrl"
+        controller: "UsersCtrl"
       )
       .when("/users/:id/delete",
         templateUrl: "<%= asset_path("users/index.html") %>"
-        controller: "UsersDeleteCtrl"
+        controller: "UsersCtrl"
       )
       .otherwise redirectTo: "/"
 ]

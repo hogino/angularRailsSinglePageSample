@@ -1,8 +1,21 @@
-h1 Editing user
+h1[ng-init="getUser()"] ユーザー編集
 
-form[ng-submit="submit()"]
-  .row.input-group
-    input[type="text" name="name" ng-model="item.name"]
+.alert.alert-dismissable.alert-info[ng-show="msgInfo.length!=0"]
+  button.close data-dismiss="alert" type="button" ×
+  | {{msgInfo}}
 
-  .row
-    input[type="submit"]
+.well
+  form.form-horizontal[name="userForm" ng-submit="updateUser()"]
+    fieldset
+      legend 入力フォーム
+      .form-group
+        label.col-lg-2.control-label for="inputName"  名前
+        .col-lg-10
+          input#inputName.form-control[placeholder="Name" type="text" name="name" ng-model="item.name" required]
+          .text-danger[ng-messages="userForm.name.$error"]
+            div[ng-message="required"]
+              | 必須入力項目です。
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-primary type="submit"  更新

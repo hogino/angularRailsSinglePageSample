@@ -2,70 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app.controller 'UsersListCtrl',[
-  '$scope'
-  'ApiService'
-  (
-    $scope
-    ApiService
-  ) ->
-    ApiService.getUsers().then (res) ->
-      $scope.items = res.data
-]
-
-app.controller 'UsersShowCtrl',[
-  '$scope'
-  '$routeParams'
-  'UsersApi'
-  (
-    $scope
-    $routeParams
-    UsersApi
-  ) ->
-    $scope.id = $routeParams.id
-    $scope.item = UsersApi.get({
-      id: $scope.id,
-      format: '.json'
-    })
-]
-
-app.controller 'UsersNewCtrl',[
-  '$scope'
-  '$routeParams'
-  'UsersApi'
-  (
-    $scope
-    $routeParams
-    UsersApi
-  ) ->
-    $scope.submit = ->
-      user = new UsersApi
-      user.user = {
-          name:$scope.name
-        }
-      user.$save()
-]
-
-app.controller 'UsersEditCtrl',[
-  '$scope'
-  '$routeParams'
-  'UsersApi'
-  (
-    $scope
-    $routeParams
-    UsersApi
-  ) ->
-    $scope.id = $routeParams.id
-    $scope.item = UsersApi.get({
-      id: $scope.id,
-      format: '.json'
-    })
-
-    $scope.submit = ->
-      UsersApi.update({id: $scope.id}, $scope.item)
-]
-
-app.controller 'UsersDeleteCtrl',[
+app.controller 'UsersCtrl',[
   '$scope'
   '$routeParams'
   'UsersApi'
@@ -76,9 +13,43 @@ app.controller 'UsersDeleteCtrl',[
     UsersApi
     ApiService
   ) ->
-    $scope.id = $routeParams.id
-    UsersApi.delete({id: $scope.id})
+    $scope.msgInfo = ''
 
-    ApiService.getUsers().then (res) ->
-      $scope.items = res.data
+    $scope.getList = ->
+      $scope.currentPage = 1;
+      $scope.pageSize = 10;
+
+      ApiService.getUsers().then (res) ->
+        $scope.items = res.data
+
+    $scope.getUser = ->
+      $scope.item = UsersApi.get({
+        id: $routeParams.id,
+        format: '.json'
+      })
+
+    $scope.createUser = ->
+      request = new UsersApi
+      request.user = {
+        name:$scope.name
+      }
+      request.$save()
+      $scope.msgInfo = 'Create!!!'
+
+
+
+    $scope.updateUser = ->
+      UsersApi.update({
+        id: $routeParams.id,
+        format: '.json'
+      }, $scope.item)
+      $scope.msgInfo = 'Update!!!'
+
+
+    $scope.deleteUser = (id) ->
+      UsersApi.delete({
+        id: id,
+        format: '.json'
+      })
+      $scope.msgInfo = 'Delete!!!'
 ]
