@@ -52,4 +52,5 @@ app.controller 'UsersCtrl',[
         format: '.json'
       })
       $scope.msgInfo = 'Delete!!!'
+
 ]

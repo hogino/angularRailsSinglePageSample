@@ -1,0 +1,41 @@
+a.btn.btn-default[href="/message_boards/new"] New
+
+h1[ng-init="getList()"] メッセージ一覧
+
+.row
+  .col-xs-3
+    h3 Page: {{ currentPage }}
+  .col-xs-3
+    label for="search"  Search:
+    input#search.form-control ng-model="q" placeholder=("Filter text")
+  .col-xs-3
+    label for="search"  items per page:
+    input.form-control max="100" min="1" ng-model="pageSize" type="number"
+
+table.table
+  thead
+    tr.info
+      th タイトル
+      th 内容
+      th
+      th
+      th
+  tbody
+    tr current-page="currentPage" dir-paginate=("item in items | filter:q | itemsPerPage: pageSize")
+      td
+        | {{item.title}}
+      td
+        | {{item.body}}
+      td
+        a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/comments"]
+          | Comment
+          span.badge
+            | {{item.commet_count}}
+      td
+        a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/edit"]
+          | Edit
+      td
+        .btn.btn-sm.btn-warning[ng-click="delete(item.id)"]
+          | Delete
+.text-center
+  dir-pagination-controls[boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url=(asset_path('pagination/dir_pagination.tpl.html'))]

@@ -16,6 +16,15 @@ app.config [
         templateUrl: "<%= asset_path("users/new.html") %>"
         controller: "UsersCtrl"
       )
+      .when("/users/sign_in",
+        templateUrl: "<%= asset_path("users/sign_in.html") %>"
+#        templateUrl: "/users/sign_in"
+        controller: "UsersCtrl"
+      )
+      .when("/users/sign_up",
+        templateUrl: "<%= asset_path("users/sign_up.html") %>"
+        controller: "UsersCtrl"
+      )
       .when("/users/:id",
         templateUrl: "<%= asset_path("users/show.html") %>"
         controller: "UsersCtrl"

@@ -1,0 +1,25 @@
+
+h1 メッセージボード追加
+
+.well
+  form.form-horizontal[name="messageBoard" ng-submit="create()"]
+    fieldset
+      legend 入力フォーム
+      .form-group
+        label.col-lg-2.control-label for="inputTitle"  タイトル
+        .col-lg-10
+          input#inputTitle.form-control[
+            placeholder="タイトル" type="text"  name="title" ng-model="title" required]
+          .text-danger[ng-messages="messageBoardForm.title.$error"]
+            div[ng-message="required"]
+              | 必須入力項目です。
+      .form-group
+        label.col-lg-2.control-label for="inputBody"  内容
+        .col-lg-10
+          input#inputBody.form-control[
+            placeholder="タイトル" type="text"  name="body" ng-model="body"]
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-primary type="submit"  連続追加
+

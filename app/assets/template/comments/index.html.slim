@@ -1,0 +1,46 @@
+
+h1
+  | {{msgBoard.title}}
+
+.well.row[ng-init="get()"]
+  label.col-lg-2.control-label  内容
+  .col-lg-10
+    | {{msgBoard.body}}
+
+h2
+  | Comments
+
+.container
+  .row
+    .col-lg-6
+      label for="search"  Search:
+      input#search.form-control ng-model="q" placeholder=("Filter text")
+    .col-lg-6
+      label for="search"  items per page:
+      input.form-control max="100" min="1" ng-model="pageSize" type="number"
+
+  .panel.panel-default dir-paginate=("comment in comments | filter:q | itemsPerPage: pageSize")
+    .panel-body
+      | {{comment.body}}
+    .panel-body
+      .btn.btn-warning.btn-sm[ng-click="delete(comment.id)"] Delete
+
+  .text-center
+    dir-pagination-controls[
+      boundary-links="true"
+      on-page-change="pageChangeHandler(newPageNumber)"
+      template-url=(asset_path('pagination/dir_pagination.tpl.html'))]
+  .row
+    form.form-horizontal[name="commentForm" ng-submit="create()"]
+      fieldset
+        /legend Comment
+        .form-group
+          .col-lg-12
+            textarea#inputComment.form-control[
+              placeholder="コメント" rows="5" type="text"  name="body" ng-model="body" required]
+            .text-danger[ng-messages="commentForm.body.$error"]
+              div[ng-message="required"]
+                | コメントください。
+        .form-group
+          .col-lg-12
+            button.btn.btn-primary type="submit" コメント

@@ -2,7 +2,19 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   get 'home' => "home#index"
 
-  resources :users
+  devise_for :users, :controllers => {
+                       :sessions => 'users/sessions',
+                       :registrations => 'users/registrations',
+                   }
+  get '/users' => 'users#index'
+
+  Rails.application.routes.draw do
+    mount Api => '/api'
+  end
+
+  # devise_scope :users do
+  #   get '/users/sign_out' => 'users/sessions#destroy'
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,26 @@
+.well
+  form.form-horizontal[name="form_sign_in" action="/users/sign_in"]
+    fieldset
+      legend ログイン
+      .form-group
+        label.col-lg-2.control-label for="userEmail"  Email
+        .col-lg-10
+          input#userEmail.form-control[
+            placeholder="Email" type="email"  name="user[email]" ng-model="userEmail" required]
+          .text-danger[ng-messages="userForm.userEmail.$error"]
+            div[ng-message="required"]
+              | 必須入力項目です。
+
+      .form-group
+        label.col-lg-2.control-label for="userPassword"  Password
+        .col-lg-10
+          input#userPassword.form-control[
+            placeholder="Password" type="password" name="user[password]" ng-model="userPassword" required]
+          .text-danger[ng-messages="userForm.userEmail.$error"]
+            div[ng-message="required"]
+              | 必須入力項目です。
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-primary type="submit"  ログイン
+

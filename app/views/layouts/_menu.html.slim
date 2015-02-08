@@ -11,8 +11,23 @@
         a href="/" Home
       li.dropdown
         a.dropdown-toggle data-toggle="dropdown" href="#"
-          | User
+          | Menu
           span.caret
-        ul.dropdown-menu aria-labelledby="themes"
+        ul.dropdown-menu aria-labelledby="user"
           li
-            a href="/users" User List
+            a href="/users" User
+          li
+            a href="/message_boards" MessageBoard
+
+    ul.nav.navbar-nav.navbar-right
+
+      - if user_signed_in?
+        li
+          = link_to 'profile', '#'
+        li
+          = link_to 'logout', destroy_user_session_path, method: :delete
+      - else
+        li
+          = link_to 'signin', new_user_registration_path
+        li
+          = link_to 'login', new_user_session_path
