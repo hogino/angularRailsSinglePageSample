@@ -30,7 +30,7 @@ table.table
         a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/comments"]
           | Comment
           span.badge
-            | {{item.commet_count}}
+            | {{item.comment_count}}
       td
         a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/edit"]
           | Edit
@@ -38,4 +38,7 @@ table.table
         .btn.btn-sm.btn-warning[ng-click="delete(item.id)"]
           | Delete
 .text-center
-  dir-pagination-controls[boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url=(asset_path('pagination/dir_pagination.tpl.html'))]
+  dir-pagination-controls[
+    boundary-links="true"
+    on-page-change="pageChangeHandler(newPageNumber)"
+    template-url=(asset_path('pagination/dir_pagination.tpl.html'))]
