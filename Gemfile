@@ -29,8 +29,6 @@ gem 'rb-readline', '~> 0.4.2'
 
 gem 'jquery-turbolinks', '2.1.0'
 
-gem 'devise'
-
 # create rails api
 gem 'grape'
 gem 'grape-jbuilder'
