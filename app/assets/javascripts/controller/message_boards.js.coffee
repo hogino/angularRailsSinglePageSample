@@ -4,15 +4,15 @@
 
 app.controller 'MessageBoardsCtrl',[
   '$scope'
-  '$routeParams'
+  '$stateParams'
   'MessageBoardsApi'
   (
     $scope
-    $routeParams
+    $stateParams
     MessageBoardsApi
   ) ->
     apiVersion = "v1"
-    $scope.getList = ->
+    $scope.get = ->
       $scope.currentPage = 1;
       $scope.pageSize = 10;
 
@@ -28,14 +28,13 @@ app.controller 'MessageBoardsCtrl',[
     $scope.show = ->
       MessageBoardsApi.get({
         version: apiVersion
-        id: $routeParams.id
+        id: $stateParams.id
       }).$promise.then ((data) ->
         $scope.item = data.message_board
         return
       ), (error) ->
         "error"
         return
-
 
     $scope.create = ->
       mb = new MessageBoardsApi
@@ -47,10 +46,9 @@ app.controller 'MessageBoardsCtrl',[
 
     $scope.put = ->
       MessageBoardsApi.update({
-        id: $routeParams.id
+        id: $stateParams.id
         version: apiVersion
       }, $scope.item)
-
 
     $scope.delete = (id) ->
       MessageBoardsApi.destroy({
@@ -58,5 +56,5 @@ app.controller 'MessageBoardsCtrl',[
         version: apiVersion
       })
       $scope.getList()
-
+    return
 ]

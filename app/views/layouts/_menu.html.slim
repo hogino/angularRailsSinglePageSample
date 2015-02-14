@@ -4,30 +4,11 @@
       span.icon-bar
       span.icon-bar
       span.icon-bar
-    a.navbar-brand href="/" Sample
+    a.navbar-brand ui-sref="home" Sample
   .navbar-collapse.collapse.navbar-responsive-collapse
     ul.nav.navbar-nav
       li
-        a href="/" Home
-      li.dropdown
-        a.dropdown-toggle data-toggle="dropdown" href="#"
-          | Menu
-          span.caret
-        ul.dropdown-menu aria-labelledby="user"
-          li
-            a href="/users" User
-          li
-            a href="/message_boards" MessageBoard
+        a ui-sref="home" Home
+      li
+        a ui-sref="messageBoards" MessageBoard
 
-    ul.nav.navbar-nav.navbar-right
-
-      - if user_signed_in?
-        li
-          = link_to 'profile', '#'
-        li
-          = link_to 'logout', destroy_user_session_path, method: :delete
-      - else
-        li
-          = link_to 'signin', new_user_registration_path
-        li
-          = link_to 'login', new_user_session_path

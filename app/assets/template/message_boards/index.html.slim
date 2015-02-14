@@ -1,6 +1,4 @@
-a.btn.btn-default[href="/message_boards/new"] New
-
-h1[ng-init="getList()"] メッセージ一覧
+h1[ng-init="get()"] メッセージ一覧
 
 .row
   .col-xs-3
@@ -27,12 +25,12 @@ table.table
       td
         | {{item.body}}
       td
-        a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/comments"]
+        a.btn.btn-sm.btn-show[ui-sref="messageBoardsComment({message_board_id:item.id})"]
           | Comment
           span.badge
             | {{item.comment_count}}
       td
-        a.btn.btn-sm.btn-show[href="/message_boards/{{item.id}}/edit"]
+        a.btn.btn-sm.btn-show[ui-sref="messageBoardsEdit({id:item.id})"]
           | Edit
       td
         .btn.btn-sm.btn-warning[ng-click="delete(item.id)"]

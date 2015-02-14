@@ -1,0 +1,20 @@
+
+app.config [
+  "$stateProvider"
+#  "$locationProvider"
+  (
+    $stateProvider
+#    $locationProvider
+  ) ->
+#    $locationProvider.html5Mode(true)
+    $stateProvider
+      .state("home",
+        url: "/"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("home/index.html") %>"
+        controller: "HomeCtrl"
+      )
+]

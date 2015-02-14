@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'home#index'
-  get 'home' => "home#index"
-
-  devise_for :users, :controllers => {
-                       :sessions => 'users/sessions',
-                       :registrations => 'users/registrations',
-                   }
-  get '/users' => 'users#index'
+  get 'nav_bar' => "home#nav_bar"
 
   Rails.application.routes.draw do
     mount Api => '/api'

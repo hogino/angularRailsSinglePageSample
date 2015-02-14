@@ -4,12 +4,12 @@
 
 app.controller 'CommentsCtrl',[
   '$scope'
-  '$routeParams'
+  '$stateParams'
   'CommentsApi'
   'MessageBoardsApi'
   (
     $scope
-    $routeParams
+    $stateParams
     CommentsApi
     MessageBoardsApi
   ) ->
@@ -20,7 +20,7 @@ app.controller 'CommentsCtrl',[
 
       getMsgBoard()
       CommentsApi.get({
-        message_board_id: $routeParams.message_board_id
+        message_board_id: $stateParams.message_board_id
         version: apiVersion
       }).$promise.then ((data) ->
         $scope.comments = data.comments
@@ -32,7 +32,7 @@ app.controller 'CommentsCtrl',[
     getMsgBoard = ->
       MessageBoardsApi.get({
         version: apiVersion
-        id: $routeParams.message_board_id
+        id: $stateParams.message_board_id
       }).$promise.then ((data) ->
         $scope.msgBoard = data.message_board
         return
@@ -44,7 +44,7 @@ app.controller 'CommentsCtrl',[
       mb = new CommentsApi
       mb.body = $scope.body
       mb.$save({
-        message_board_id: $routeParams.message_board_id
+        message_board_id: $stateParams.message_board_id
         version: apiVersion
       })
       $scope.body = ''
@@ -52,7 +52,7 @@ app.controller 'CommentsCtrl',[
 
     $scope.delete = (id) ->
       CommentsApi.destroy({
-        message_board_id: $routeParams.message_board_id
+        message_board_id: $stateParams.message_board_id
         id: id
         version: apiVersion
       })

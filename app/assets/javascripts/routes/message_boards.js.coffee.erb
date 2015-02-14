@@ -1,24 +1,39 @@
 
 app.config [
-  "$routeProvider"
+  "$stateProvider"
   "$locationProvider"
   (
-    $routeProvider
+    $stateProvider
     $locationProvider
   ) ->
-    $locationProvider.html5Mode(true)
-    $routeProvider
-      .when("/message_boards",
-        templateUrl: "<%= asset_path("message_boards/index.html") %>"
-        controller: "MessageBoardsCtrl"
+#    $locationProvider.html5Mode(true)
+    base_url = "/mesage_boards"
+    $stateProvider
+      .state("messageBoards",
+        url: base_url
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("message_boards/index.html") %>"
+            controller: "MessageBoardsCtrl"
       )
-      .when("/message_boards/new",
-        templateUrl: "<%= asset_path("message_boards/new.html") %>"
-        controller: "MessageBoardsCtrl"
+      .state("messageBoardsNew",
+        url: "#{base_url}/new"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("message_boards/new.html") %>"
+            controller: "MessageBoardsCtrl"
       )
-      .when("/message_boards/:id/edit",
-        templateUrl: "<%= asset_path("message_boards/edit.html") %>"
-        controller: "MessageBoardsCtrl"
+      .state("messageBoardsEdit",
+        url: "#{base_url}/:id/edit"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("message_boards/edit.html") %>"
+            controller: "MessageBoardsCtrl"
       )
-      .otherwise redirectTo: "/"
 ]

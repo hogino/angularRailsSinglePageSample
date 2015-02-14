@@ -2,18 +2,23 @@ DOCTYPE
 html[ng-app="angularRailsSinglePageSample"]
   head
     title angularRailsSinglePageSample
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
     base[href="/"]
   body
-    == render 'layouts/menu'
+    header
+      == render 'layouts/menu'
 
-    /| current_user
-    /= current_user
-
-    p.notice = notice
-    p.alert = alert
+    /.container
+    /  div[ng-view]
 
     .container
-      div[ng-view]
+      .col-md-3
+        .well ui-view="subMenu"
+      .col-md-9
+        div ui-view="mainContent"
+
+    hr
+    footer
+      == render 'layouts/footer'
