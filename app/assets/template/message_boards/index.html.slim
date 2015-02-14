@@ -4,37 +4,29 @@ h1[ng-init="get()"] メッセージ一覧
   .col-xs-3
     h3 Page: {{ currentPage }}
   .col-xs-3
-    label for="search"  Search:
-    input#search.form-control ng-model="q" placeholder=("Filter text")
+    label[for="search"] Search:
+    input#search.form-control[ng-model="q" placeholder=("Filter text")]
   .col-xs-3
-    label for="search"  items per page:
-    input.form-control max="100" min="1" ng-model="pageSize" type="number"
+    label[for="search"] items per page:
+    input.form-control[max="100" min="1" ng-model="pageSize" type="number"]
 
-table.table
-  thead
-    tr.info
-      th タイトル
-      th 内容
-      th
-      th
-      th
-  tbody
-    tr current-page="currentPage" dir-paginate=("item in items | filter:q | itemsPerPage: pageSize")
-      td
-        | {{item.title}}
-      td
-        | {{item.body}}
-      td
-        a.btn.btn-sm.btn-show[ui-sref="messageBoardsComment({message_board_id:item.id})"]
+.row
+  .col-xs-4[current-page="currentPage" dir-paginate=("mb in messageBoards | filter:q | itemsPerPage: pageSize")]
+    .panel.panel-info
+      .panel-heading
+        | {{mb.title}}
+      .panel-body
+        | {{mb.body}}
+      .panel-footer
+        .btn.btn-primary.btn-sm.btn-show[ui-sref="messageBoardsComment({message_board_id:mb.id})"]
           | Comment
           span.badge
-            | {{item.comment_count}}
-      td
-        a.btn.btn-sm.btn-show[ui-sref="messageBoardsEdit({id:item.id})"]
+            | {{mb.comment_count}}
+        .btn.btn-sm.btn-show[ui-sref="messageBoardsEdit({id:mb.id})"]
           | Edit
-      td
-        .btn.btn-sm.btn-warning[ng-click="delete(item.id)"]
+        .btn.btn-sm.btn-warning[ng-click="delete(mb.id)"]
           | Delete
+
 .text-center
   dir-pagination-controls[
     boundary-links="true"

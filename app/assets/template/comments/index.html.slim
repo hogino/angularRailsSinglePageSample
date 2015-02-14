@@ -2,9 +2,8 @@
 h1
   | {{msgBoard.title}}
 
-.well.row[ng-init="get()"]
-  label.col-lg-2.control-label  内容
-  .col-lg-10
+.well.well-sm.row[ng-init="get()"]
+  p
     | {{msgBoard.body}}
 
 h2
@@ -12,13 +11,13 @@ h2
 
 .row
   .col-lg-6
-    label for="search"  Search:
-    input#search.form-control ng-model="q" placeholder=("Filter text")
+    label[for="search"]  Search:
+    input#search.form-control[ng-model="q" placeholder=("Filter text")]
   .col-lg-6
-    label for="search"  items per page:
-    input.form-control max="100" min="1" ng-model="pageSize" type="number"
+    label[for="search"]  items per page:
+    input.form-control[max="100" min="1" ng-model="pageSize" type="number"]
 
-.panel.panel-default dir-paginate=("comment in comments | filter:q | itemsPerPage: pageSize")
+.panel.panel-default[dir-paginate=("comment in comments | filter:q | itemsPerPage: pageSize")]
   .panel-body
     | {{comment.body}}
   .panel-body
@@ -41,4 +40,4 @@ h2
               | コメントください。
       .form-group
         .col-lg-12
-          button.btn.btn-primary type="submit" コメント
+          button.btn.btn-primary[type="submit"] コメント

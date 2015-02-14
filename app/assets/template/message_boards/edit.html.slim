@@ -5,19 +5,19 @@ h1[ng-init="show()"] MessageBoard Edit
     fieldset
       legend 入力フォーム
       .form-group
-        label.col-lg-2.control-label for="inputTitle"  タイトル
+        label.col-lg-2.control-label[for="inputTitle"] タイトル
         .col-lg-10
           input#inputTitle.form-control[
-            placeholder="タイトル" type="text" name="title" ng-model="item.title" required]
+            placeholder="タイトル" type="text" name="title" ng-model="messageBoard.title" required]
           .text-danger[ng-messages="messageBoardForm.title.$error"]
             div[ng-message="required"]
               | 必須入力項目です。
       .form-group
-        label.col-lg-2.control-label for="inputBody"  内容
+        label.col-lg-2.control-label[for="inputBody"]  内容
         .col-lg-10
           input#inputBody.form-control[
-            placeholder="タイトル" type="text" name="body" ng-model="item.body"]
+            placeholder="タイトル" type="text" name="body" ng-model="messageBoard.body"]
 
       .form-group
         .col-lg-10.col-lg-offset-2
-          button.btn.btn-primary type="submit"  更新
+          button.btn.btn-primary[type="submit"]  更新

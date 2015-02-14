@@ -10,14 +10,11 @@ html[ng-app="angularRailsSinglePageSample"]
     header
       == render 'layouts/menu'
 
-    /.container
-    /  div[ng-view]
-
     .container
       .col-md-3
-        .well ui-view="subMenu"
+        .well.sidebar-nav[ui-view="subMenu"]
       .col-md-9
-        div ui-view="mainContent"
+        div[ui-view="mainContent"]
 
     hr
     footer

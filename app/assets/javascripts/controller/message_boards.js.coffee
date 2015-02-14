@@ -19,7 +19,7 @@ app.controller 'MessageBoardsCtrl',[
       MessageBoardsApi.get({
         version: apiVersion
       }).$promise.then ((data) ->
-        $scope.items = data.message_boards
+        $scope.messageBoards = data.message_boards
         return
       ), (error) ->
         "error"
@@ -30,7 +30,7 @@ app.controller 'MessageBoardsCtrl',[
         version: apiVersion
         id: $stateParams.id
       }).$promise.then ((data) ->
-        $scope.item = data.message_board
+        $scope.messageBoard = data.message_board
         return
       ), (error) ->
         "error"
