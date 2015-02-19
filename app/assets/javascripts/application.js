@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require angular/angular.min.js
 //= require angular/module/angular-ui-router.min.js
+//= require angular/module/ng-token-auth.min.js
 //= require app
 //= require_tree .

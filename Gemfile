@@ -33,6 +33,9 @@ gem 'jquery-turbolinks', '2.1.0'
 gem 'grape'
 gem 'grape-jbuilder'
 
+gem 'omniauth'
+gem 'devise_token_auth'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

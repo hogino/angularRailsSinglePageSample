@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: '/api/auth'
   root :to => 'home#index'
   get 'nav_bar' => "home#nav_bar"
 
