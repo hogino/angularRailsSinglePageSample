@@ -1,0 +1,34 @@
+h1 Login
+
+.well
+  form.form-horizontal[
+    ng-submit="submitLogin(loginForm)"
+    role="form"
+    ng-init="loginForm = {}"]
+    fieldset
+      .form-group
+        label.col-lg-2.control-label[for="inputEmail"] email
+        .col-lg-10
+          input#inputEmail.form-control[
+            placeholder="email"
+            type="email"
+            name="email"
+            ng-model="loginForm.email"
+            required]
+          .text-danger[ng-messages="loginForm.email.$error"]
+            div[ng-message="required"]
+              | 必須入力項目です。
+
+      .form-group
+        label.col-lg-2.control-label for="inputPassword" Password
+        .col-lg-10
+          input#inputPassword.form-control[
+            placeholder="password"
+            type="password"
+            name="password"
+            ng-model="loginForm.password"
+            required]
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-primary[type="submit"] Sign in

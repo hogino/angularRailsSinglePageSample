@@ -1,0 +1,21 @@
+h1 Account update
+
+.well
+  form.form-horizontal[
+    ng-submit="updateAccount(updateAccountForm)"
+    role="form"
+    ng-init="updateAccountForm = {zodiac_sign: null}"]
+    fieldset[ng-disabled="!user.signedIn"]
+      .form-group
+        label.col-lg-2.control-label[for="inputZodiacSign"] ZodiacSign
+        .col-lg-10
+          input#inputEmail.form-control[
+            placeholder="zodiac sign"
+            type="text"
+            name="text"
+            ng-model="updateAccountForm.zodiac_sign"
+            required]
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          button.btn.btn-primary[type="submit"] Update your zodiac sign

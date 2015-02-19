@@ -1,0 +1,48 @@
+
+app.config [
+  "$stateProvider"
+#  "$locationProvider"
+  (
+    $stateProvider
+#    $locationProvider
+  ) ->
+#    $locationProvider.html5Mode(true)
+    baseUrl = '/users'
+    $stateProvider
+      .state("usersRegistration",
+        url: "#{baseUrl}/registration"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("users/registration.html") %>"
+            controller: "UsersCtrl"
+      )
+      .state("usersLogin",
+        url: "#{baseUrl}/login"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("users/login.html") %>"
+            controller: "UsersCtrl"
+      )
+      .state("usersPwdReset",
+        url: "#{baseUrl}/pwd_reset"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("users/password_reset.html") %>"
+            controller: "UsersCtrl"
+      )
+      .state("usersPwdUpdate",
+        url: "#{baseUrl}/pwd_update"
+        views:
+          "subMenu":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent":
+            templateUrl: "<%= asset_path("users/password_update.html") %>"
+            controller: "UsersCtrl"
+      )
+]
