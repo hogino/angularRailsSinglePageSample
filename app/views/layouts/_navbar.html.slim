@@ -1,0 +1,5 @@
+div[ng-if="!user.signedIn"]
+  == render "layouts/nav/default"
+div[ng-if="user.signedIn"]
+  == render "layouts/nav/normal_user"
+

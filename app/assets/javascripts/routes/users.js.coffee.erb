@@ -12,36 +12,40 @@ app.config [
       .state("usersRegistration",
         url: "#{baseUrl}/registration"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/not_signed_in.html") %>"
+          "mainContent@usersRegistration":
             templateUrl: "<%= asset_path("users/registration.html") %>"
             controller: "UsersCtrl"
       )
       .state("usersLogin",
         url: "#{baseUrl}/login"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/not_signed_in.html") %>"
+          "mainContent@usersLogin":
             templateUrl: "<%= asset_path("users/login.html") %>"
             controller: "UsersCtrl"
       )
       .state("usersPwdReset",
         url: "#{baseUrl}/pwd_reset"
         views:
-          "subMenu":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@usersPwdReset":
             templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent":
+          "mainContent@usersPwdReset":
             templateUrl: "<%= asset_path("users/password_reset.html") %>"
             controller: "UsersCtrl"
       )
       .state("usersPwdUpdate",
         url: "#{baseUrl}/pwd_update"
         views:
-          "subMenu":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@usersPwdUpdate":
             templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent":
+          "mainContent@usersPwdUpdate":
             templateUrl: "<%= asset_path("users/password_update.html") %>"
             controller: "UsersCtrl"
       )

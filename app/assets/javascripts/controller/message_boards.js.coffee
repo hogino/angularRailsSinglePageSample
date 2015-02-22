@@ -48,7 +48,7 @@ app.controller 'MessageBoardsCtrl',[
       MessageBoardsApi.update({
         id: $stateParams.id
         version: apiVersion
-      }, $scope.item)
+      }, $scope.messageBoard)
 
     $scope.delete = (id) ->
       MessageBoardsApi.destroy({

@@ -12,9 +12,11 @@ app.config [
       .state("messageBoardsComment",
         url:"/message_boards/:message_board_id/comments"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@messageBoardsComment":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent@messageBoardsComment":
             templateUrl: "<%= asset_path("comments/index.html") %>"
             controller: "CommentsCtrl"
       )

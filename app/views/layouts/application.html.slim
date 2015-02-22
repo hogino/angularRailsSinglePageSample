@@ -8,13 +8,9 @@ html[ng-app="angularRailsSinglePageSample"]
     base[href="/"]
   body
     header
-      == render 'layouts/menu'
+      == render 'layouts/navbar'
 
-    .container
-      .col-md-3
-        .well.sidebar-nav[ui-view="subMenu"]
-      .col-md-9
-        div[ui-view="mainContent"]
+    div[ui-view]
 
     hr
     footer

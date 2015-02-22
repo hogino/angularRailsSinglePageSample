@@ -12,27 +12,33 @@ app.config [
       .state("messageBoards",
         url: base_url
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@messageBoards":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent@messageBoards":
             templateUrl: "<%= asset_path("message_boards/index.html") %>"
             controller: "MessageBoardsCtrl"
       )
       .state("messageBoardsNew",
         url: "#{base_url}/new"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@messageBoardsNew":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent@messageBoardsNew":
             templateUrl: "<%= asset_path("message_boards/new.html") %>"
             controller: "MessageBoardsCtrl"
       )
       .state("messageBoardsEdit",
         url: "#{base_url}/:id/edit"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("message_boards/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
+          "subMenu@messageBoardsEdit":
+            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+          "mainContent@messageBoardsEdit":
             templateUrl: "<%= asset_path("message_boards/edit.html") %>"
             controller: "MessageBoardsCtrl"
       )

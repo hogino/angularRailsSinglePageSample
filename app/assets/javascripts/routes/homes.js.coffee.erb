@@ -11,9 +11,9 @@ app.config [
       .state("home",
         url: "/"
         views:
-          "subMenu":
-            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent":
+          "":
+            templateUrl: "<%= asset_path("layouts/not_signed_in.html") %>"
+          "mainContent@home":
             templateUrl: "<%= asset_path("home/index.html") %>"
         controller: "HomeCtrl"
       )
