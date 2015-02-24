@@ -1,29 +1,23 @@
 h4
   | sub menu
 
-
-ul.nav
+ul.nav[ng-if="isMessageBoard"]
   li MessageBoards
   li
     a[ui-sref="messageBoards"] List
   li
-    a[ui-sref="messageBoardsNew"] New
+    a[ui-sref=".new"] New
+
+ul.nav[ng-if="isUser"]
   li Users
   li
-    a[ui-sref="usersRegistration"] New
+    a[ui-sref="users.registration"] New
   li
-    a[ui-sref="usersLogin"] Login
+    a[ui-sref="users.accountUpdate"] Account update
   li
-    a[
-      ng-controller="UsersCtrl"
-      ng-click='signOut()'
-      href] Sign out
+    a[ui-sref="users.pwdReset"] Password reset
   li
-    a[ui-sref="usersPwdReset"] Password reset
-  li
-    a[ui-sref="usersPwdUpdate"] Password update
-  li
-    a[ui-sref="usersAccountUpdate"] Account update
+    a[ui-sref="users.pwdUpdate"] Password update
   li
     a[
       ng-controller="UsersCtrl"

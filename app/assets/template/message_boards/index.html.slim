@@ -22,7 +22,7 @@ h1[ng-init="get()"] メッセージ一覧
           | Comment
           span.badge
             | {{mb.comment_count}}
-        .btn.btn-sm.btn-show[ui-sref="messageBoardsEdit({id:mb.id})"]
+        .btn.btn-sm.btn-show[ui-sref="messageBoards.edit({id:mb.id})"]
           | Edit
         .btn.btn-sm.btn-warning[ng-click="delete(mb.id)"]
           | Delete

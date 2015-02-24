@@ -28,7 +28,7 @@ app.controller 'UsersCtrl',[
 
     $scope.$on('auth:registration-email-success', (ev, message) ->
       alert("A registration email was sent to " + message.email)
-      $state.go 'usersLogin'
+      $state.go 'users.login'
     )
 
     $scope.$on('auth:registration-email-error', (ev, reason) ->
@@ -37,7 +37,7 @@ app.controller 'UsersCtrl',[
 
     $scope.$on('auth:email-confirmation-success', (ev, user) ->
       alert("Welcome, "+user.email+". Your account has been verified.")
-      $state.go 'usersLogin'
+      $state.go 'users.login'
     )
 
     $scope.$on('auth:email-confirmation-error', (ev, reason) ->
@@ -79,7 +79,7 @@ app.controller 'UsersCtrl',[
       )
     $rootScope.$on('auth:logout-success', (ev) ->
       alert('goodbye')
-      $state.go 'usersLogin'
+      $state.go 'users.login'
     )
 
     $rootScope.$on('auth:logout-error', (ev, reason) ->
@@ -106,7 +106,7 @@ app.controller 'UsersCtrl',[
     )
 
     $rootScope.$on('auth:password-reset-confirm-success', ->
-      $state.go('usersPwdReset');
+      $state.go('users.pwdReset');
     )
 
     $scope.$on('auth:password-reset-confirm-error', (ev, reason) ->

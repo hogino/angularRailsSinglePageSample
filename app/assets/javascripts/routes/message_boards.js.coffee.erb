@@ -16,29 +16,23 @@ app.config [
             templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
           "subMenu@messageBoards":
             templateUrl: "<%= asset_path("home/sub_menu.html") %>"
+            controller: ($scope) ->
+              $scope.isMessageBoard = true
           "mainContent@messageBoards":
             templateUrl: "<%= asset_path("message_boards/index.html") %>"
             controller: "MessageBoardsCtrl"
       )
-      .state("messageBoardsNew",
-        url: "#{base_url}/new"
+      .state("messageBoards.new",
+        url: "/new"
         views:
-          "":
-            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
-          "subMenu@messageBoardsNew":
-            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent@messageBoardsNew":
+          "mainContent":
             templateUrl: "<%= asset_path("message_boards/new.html") %>"
             controller: "MessageBoardsCtrl"
       )
-      .state("messageBoardsEdit",
-        url: "#{base_url}/:id/edit"
+      .state("messageBoards.edit",
+        url: "/:id/edit"
         views:
-          "":
-            templateUrl: "<%= asset_path("layouts/signed_in.html") %>"
-          "subMenu@messageBoardsEdit":
-            templateUrl: "<%= asset_path("home/sub_menu.html") %>"
-          "mainContent@messageBoardsEdit":
+          "mainContent":
             templateUrl: "<%= asset_path("message_boards/edit.html") %>"
             controller: "MessageBoardsCtrl"
       )
